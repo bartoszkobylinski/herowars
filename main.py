@@ -3,145 +3,101 @@ import webbrowser
 import time
 
 from tower import go_to_tower, to_battle, skip_battle
+from detailed_jobs import locate_button_coords
+
 
 def open_daily_quests():
     time.sleep(5)
 
-    daily_quests_image = pyautogui.locateOnScreen('/home/bart/Pictures/hero_wars/daily_quest.png', confidence=0.8)
+    daily_quests_image = pyautogui.locateOnScreen(
+        '/home/bart/Pictures/hero_wars/daily_quest.png', confidence=0.8)
 
     if daily_quests_image:
-        middle_X = daily_quests_image.left + 20
-        middle_Y = daily_quests_image.top + 15
-        pyautogui.click(x=middle_X, y=middle_Y)   
+        locate_button_coords(daily_quests_image)
     else:
-        daily_quests_image = pyautogui.locateOnScreen('/home/bart/Pictures/hero_wars/daily_quest.png', confidence=0.8)
-        middle_X = daily_quests_image.left + 20
-        middle_Y = daily_quests_check.top + 15
-        pyautogui.click(x=middle_X, y=middle_Y)
+        daily_quests_image = pyautogui.locateOnScreen(
+            '/home/bart/Pictures/hero_wars/daily_quest.png', confidence=0.8)
+        locate_button_coords(daily_quests_image)
+
 
 def complete_daily_quests():
     time.sleep(3)
 
-    complete = pyautogui.locateOnScreen('/home/bart/Pictures/hero_wars/complete.png', confidence=0.8)
+    complete = pyautogui.locateOnScreen(
+        '/home/bart/Pictures/hero_wars/complete.png', confidence=0.8)
     if complete:
-        middle_X = complete.left + 15
-        middle_Y = complete.top + 15
-        try:
-            pyautogui.click(x=middle_X, y=middle_Y)
-        except AttributeError:
-            pass
+        locate_button_coords(complete)
     else:
-        complete = pyautogui.locateOnScreen('/home/bart/Pictures/hero_wars/complete.png', confidence=0.8)
+        complete = pyautogui.locateOnScreen(
+            '/home/bart/Pictures/hero_wars/complete.png', confidence=0.8)
         if complete:
-            middle_X = complete.left + 15
-            middle_Y = complete.top + 15
-            try:
-                pyautogui.click(x=middle_X, y=middle_Y)
-            except AttributeError:
-                pass
-    
+            locate_button_coords(complete)
+
+
 chrome = webbrowser.open('www.facebook.com')
+
 
 def click_into_hero_wars_logo():
     time.sleep(5)
 
-    hero_wars_logo = pyautogui.locateOnScreen('/home/bart/Pictures/hero_wars/hero_wars_logo.png', confidence=0.8)
+    hero_wars_logo = pyautogui.locateOnScreen(
+        '/home/bart/Pictures/hero_wars/hero_wars_logo.png', confidence=0.8)
     if hero_wars_logo:
-        middle_X = hero_wars_logo.left + 50
-        middle_Y = hero_wars_logo.top + 50
-        pyautogui.click(x=middle_X, y=middle_Y)
-        
+        locate_button_coords(hero_wars_logo)
+
     else:
-        herowarslogo = pyautogui.locateOnScreen('/home/bart/Pictures/hero_wars/hero_wars_logo.png', confidence=0.8)
+        herowarslogo = pyautogui.locateOnScreen(
+            '/home/bart/Pictures/hero_wars/hero_wars_logo.png', confidence=0.8)
         if herowarslogo:
-            print("finnaly found")
-        hero_wars_logo = herowarslogo
-        middle_X = hero_wars_logo.left + 50
-        middle_Y = hero_wars_logo.top + 50
-        try:
-            pyautogui.click(x=middle_X, y=middle_Y)
-        except AttributeError:
-            pass
+            locate_button_coords(herowarslogo)
+
 
 def click_into_close_button():
-    button_x = pyautogui.locateOnScreen('/home/bart/Pictures/hero_wars/x-button.png', confidence=0.8)
+    button_x = pyautogui.locateOnScreen(
+        '/home/bart/Pictures/hero_wars/x-button.png', confidence=0.8)
     if button_x:
+        locate_button_coords(button_x)
         print("I'm closing ads")
-
-        middle_X = button_x.left + 15
-        middle_Y = button_x.top + 15
-        try:
-            pyautogui.click(x=middle_X, y=middle_Y)
-        except AttributeError:
-            pass
     else:
         pyautogui.hotkey('f5')
         time.sleep(20)
-        middle_X = button_x.left + 15
-        middle_Y = button_x.top + 15
-        try:
-            pyautogui.click(x=middle_X, y=middle_Y)
-        except AttributeError:
-            pass
-        print("I have not found it")
+        locate_button_coords(button_x)
+
 
 def check_mail_box():
-    mail_button = pyautogui.locateOnScreen('/home/bart/Pictures/hero_wars/mail.png', confidence=0.8)
+    mail_button = pyautogui.locateOnScreen(
+        '/home/bart/Pictures/hero_wars/mail.png', confidence=0.8)
     if mail_button:
-        middle_X = mail_button.left + 15
-        middle_Y = mail_button.top + 15
-        try:
-            pyautogui.click(x=middle_X, y=middle_Y)
-        except AttributeError:
-            pass
+        locate_button_coords(mail_button)
     else:
         time.sleep(3)
-        mail_button = pyautogui.locateOnScreen('/home/bart/Pictures/hero_wars/mail.png', confidence=0.8)
-        middle_X = mail_button.left + 15
-        middle_Y = mail_button.top + 15
-        try:
-            pyautogui.click(x=middle_X, y=middle_Y)
-        except AttributeError:
-            pass    
+        mail_button = pyautogui.locateOnScreen(
+            '/home/bart/Pictures/hero_wars/mail.png', confidence=0.8)
+        locate_button_coords(mail_button)
+
 
 def collect_all_mail():
     time.sleep(3)
-    collect_all = pyautogui.locateOnScreen('/home/bart/Pictures/hero_wars/collect_all.png', confidence=0.8)
+    collect_all = pyautogui.locateOnScreen(
+        '/home/bart/Pictures/hero_wars/collect_all.png', confidence=0.8)
     if collect_all:
         print('I have found collect all')
-        middle_X = collect_all.left + 15
-        middle_Y = collect_all.top +15
-        try:
-            pyautogui.click(x=middle_X, y=middle_Y)
-        except AttributeError:
-            pass  
-        collect_all = pyautogui.locateOnScreen('/home/bart/Pictures/hero_wars/collect_all.png', confidence=0.8)
+        locate_button_coords(collect_all)
+        collect_all = pyautogui.locateOnScreen(
+            '/home/bart/Pictures/hero_wars/collect_all.png', confidence=0.8)
         if collect_all:
-            middle_X = collect_all.left + 15
-            middle_Y = collect_all.top +15
-            try:
-                pyautogui.click(x=middle_X, y=middle_Y)
-            except AttributeError:
-                pass  
+            locate_button_coords(collect_all)
     else:
         print("I have not found collect all")
         time.sleep(3)
-        collect_all = pyautogui.locateOnScreen('/home/bart/Pictures/hero_wars/collect_all.png', confidence=0.8)
+        collect_all = pyautogui.locateOnScreen(
+            '/home/bart/Pictures/hero_wars/collect_all.png', confidence=0.8)
         if collect_all:
-            middle_X = collect_all.left + 15
-            middle_Y = collect_all.top +15
-            try:
-                pyautogui.click(x=middle_X, y=middle_Y)
-            except AttributeError:
-                pass  
-            collect_all = pyautogui.locateOnScreen('/home/bart/Pictures/hero_wars/collect_all.png', confidence=0.8)
+            locate_button_coords(collect_all)
+            collect_all = pyautogui.locateOnScreen(
+                '/home/bart/Pictures/hero_wars/collect_all.png', confidence=0.8)
             if collect_all:
-                middle_X = collect_all.left + 15
-                middle_Y = collect_all.top +15
-                try:
-                    pyautogui.click(x=middle_X, y=middle_Y)
-                except AttributeError:
-                    pass  
+                locate_button_coords(collect_all)
 
 
 click_into_hero_wars_logo()
